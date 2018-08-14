@@ -1,3 +1,26 @@
-<p>
-  randombike works!
-</p>
+<div class=" top container">
+  <h1>Bike of the Day!</h1>
+  <div class="allbikes">
+    <div class="row">
+      <div class="col-4">
+        <img src="{{ bike?.image }}" alt="bike-image">
+      </div>
+      <div class="col-5">
+        <div class="row">
+          <h5>{{ bike?.title | titleize }}</h5>
+        </div>
+        <div class="row">
+          <p>{{ bike?.description }}</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <h5>{{ bike?.price | currency:USD }}</h5>
+        </div>
+        <div class="row">
+          <p>{{ bike?.location | titleize }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

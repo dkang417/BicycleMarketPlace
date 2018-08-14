@@ -1,3 +1,23 @@
-<p>
-  login works!
-</p>
+<div *ngIf='errors.length'>
+  <ul class="alert alert-danger">
+    <li *ngFor='let error of errors'>{{error}}</li>
+  </ul>
+</div>
+
+<section class="row">
+  <fieldset>
+    <legend>Login</legend>
+    <form (submit)='onSubmit(login.value)' #login='ngForm' class="form-group">
+      <div class="form-control">
+        <label for="">Email</label>
+        <input type="email" name="email" #name='ngModel' [(ngModel)]='user.email' required>
+      </div>
+
+      <div class="form-control">
+        <label for="">Password</label>
+        <input type="password" name="password" #password='ngModel' [(ngModel)]='user.password' minlength="8" required>
+      </div>
+      <button class="btn btn-primary" [disabled]='!login.valid'>Login</button>
+    </form>
+  </fieldset>
+</section>

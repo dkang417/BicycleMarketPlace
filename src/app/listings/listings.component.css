@@ -1,0 +1,19 @@
+img {
+  width: 90%;
+  height: auto;
+  margin: 5px;
+}
+
+.listing {
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 5px;
+}
+
+.form-control {
+  margin: 10px;
+}
+
+.top {
+  margin-top: 20px;
+}

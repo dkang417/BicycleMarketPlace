@@ -1,3 +1,68 @@
-<p>
-  browse works!
-</p>
+<div class="top container">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="input-field">
+          <label for="">Search : </label>
+          <input [(ngModel)]="searchingText" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- List of all bikes -->
+  <div class="container" *ngFor='let bike of bikes | filter: searchingText'>
+    <div class="allbikes">
+      <div class="row">
+
+        <div class="col-3">
+          <img src="{{ bike.image }}" alt="bike-image">
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <h4>{{ bike.title | titleize }}</h4>
+          </div>
+          <div class="row">
+            <p>{{ bike.description }}</p>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="row">
+            <h5>{{ bike.price | currency:USD }}</h5>
+          </div>
+          <div class="row">
+            <p>{{ bike.location | titleize }}</p>
+          </div>
+          <div class="row">
+            <button class="btn btn-danger" *ngIf="bike.ownerId === currUserId;" (click)='onDelete(bike)'>Delete</button>
+            <button class="btn btn-primary" *ngIf="bike.ownerId !== currUserId;" (click)="openModal(bike.ownerId)">Contact</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="bground" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Listing Owner Contact</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Name: {{ contact[0]?.firstname | titleize }} </p>
+        <p>Email: {{ contact[0]?.email | titleize }}</p>
+      </div>
+    </div>
+  </div>
+</div>

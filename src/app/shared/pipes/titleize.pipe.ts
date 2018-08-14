@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'titleize',
+  name: 'titleize'
 })
 export class TitleizePipe implements PipeTransform {
   static skipWords = ['of', 'the', 'an', 'a', 'in'];
@@ -15,6 +15,7 @@ export class TitleizePipe implements PipeTransform {
     const skipWords = Array.isArray(args) ? args : TitleizePipe.skipWords;
     const processSkipwords: boolean = args !== false;
 
+
     return title.replace(/\w[^-\s]*/g, (word, index: number) => {
       console.log('word is ', word, index);
       if (processSkipwords && index && skipWords.includes(word.toLowerCase())) {
@@ -24,5 +25,6 @@ export class TitleizePipe implements PipeTransform {
       return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
     });
   }
+
 }
 

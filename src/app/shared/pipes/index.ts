@@ -1,11 +1,11 @@
-import { TitleizePipe } from './titleize.pipe';
 import { FilterPipe } from './filter.pipe';
+import { TitleizePipe } from './titleize.pipe';
 
 export const pipes: any[] = [
-    TitleizePipe,
-    FilterPipe
+  FilterPipe,
+  TitleizePipe
 ];
 
-export * from './titleize.pipe';
 export * from './filter.pipe';
+export * from './titleize.pipe';
 

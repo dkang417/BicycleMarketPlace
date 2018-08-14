@@ -1,0 +1,33 @@
+
+.listing {
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 5px;
+}
+
+.search {
+  width: 80%;
+  margin: 5px;
+}
+
+.top {
+  margin-top: 20px;
+}
+.bground{
+  background-color:rgba(0, 0, 0, 0.856);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+}
+
+img {
+  width: 80%;
+  height: auto;
+  margin: 5px;
+}
+
+.allbikes {
+  margin-top: 20px;
+}

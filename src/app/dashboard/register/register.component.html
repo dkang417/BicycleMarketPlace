@@ -1,3 +1,39 @@
-<p>
-  register works!
-</p>
+<div *ngIf='registrationErrors.length'>
+  <ul class="alert alert-danger">
+    <li *ngFor='let error of registrationErrors'>{{error}}</li>
+  </ul>
+</div>
+
+
+<section class="row">
+  <fieldset>
+    <legend>Register</legend>
+    <form (submit)='onSubmit(register.value)' #register='ngForm' class='form-group'>
+      <div class="form-control">
+        <label for="">First Name:</label>
+        <input type="text" name='firstname' #firstname='ngModel' [(ngModel)]='user.firstname' required>
+      </div>
+      <div class="form-control">
+        <label for="">Last Name:</label>
+        <input type="text" name='lastname' #lastname='ngModel' [(ngModel)]='user.lastname' required>
+      </div>
+      <div class="form-control">
+        <label for="">Email:</label>
+        <input type="email" name='email' #username='ngModel' [(ngModel)]='user.email' required>
+      </div>
+      <div class="form-control">
+        <label for="">Password:</label>
+        <input type="password" name='password' #password='ngModel' [(ngModel)]='user.password' minlength='8' required>
+        <p class="red" *ngIf="password.touched && password.errors">*Password must be at least 8 characters </p>
+      </div>
+      <div class="form-control">
+        <label for="">Confirm Password:</label>
+        <input type="password" name='confirmpassword' #confirmpassword='ngModel' [(ngModel)]='user.confirmpassword' minlength='8'
+          required>
+        <p class="red" *ngIf="confirmpassword.touched && confirmpassword.errors"> *Password must be at least 8 characters </p>
+        <p class="red" *ngIf="confirmpassword.valid && confirmpassword.value !== password.value">*Password Confirmation must match Password</p>
+      </div>
+      <button class="btn btn-primary" [disabled]='!register.valid'>Register</button>
+    </form>
+  </fieldset>
+</section>

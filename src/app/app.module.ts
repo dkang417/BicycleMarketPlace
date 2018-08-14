@@ -19,6 +19,7 @@ import { ListingsComponent } from './listings/listings.component';
 import { NavComponent } from './nav/nav.component';
 
 import { AuthGuard } from './auth.guard';
+import { TitleizePipe } from './shared/pipes';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AuthGuard } from './auth.guard';
     RandombikeComponent,
     RegisterComponent,
     ListingsComponent,
-    NavComponent
+    NavComponent,
+    TitleizePipe
   ],
   imports: [
     BrowserModule,
