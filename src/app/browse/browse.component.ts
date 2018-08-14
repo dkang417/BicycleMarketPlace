@@ -53,13 +53,13 @@ export class BrowseComponent implements OnInit, OnDestroy {
 
   onClick(event: Event) {
     event.stopPropagation();
-    console.log('stop prop', event);
+    // console.log('stop prop', event);
   }
   onDelete(bikeToDelete: Bike) {
-    console.log('deleting bike', bikeToDelete);
+    // console.log('deleting bike', bikeToDelete);
     this.bikeService.deleteBike(bikeToDelete)
       .subscribe(deletedBike => {
-        console.log('bye bye bike', deletedBike);
+        // console.log('bye bye bike', deletedBike);
         this.bikes = this.bikes.filter(bike => bike._id !== deletedBike._id);
       });
   }
@@ -67,7 +67,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
   // Modal
   openModal(ownerId: string) {
     this.display = 'block';
-    console.log('contact id: ', ownerId);
+    // console.log('contact id: ', ownerId);
     const observer = this.auth.getContact(ownerId);
     observer.subscribe(
       (response) => {

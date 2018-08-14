@@ -30,7 +30,7 @@ module.exports = {
 
 
   register(request, response) {
-    console.log('registering user', request.body);
+    // console.log('registering user', request.body);
     User.create(request.body)
     .then(user => {
       // handle login
@@ -39,7 +39,7 @@ module.exports = {
     .catch(console.log);
     },
     logout(request, response) {
-      console.log('logging out...');
+      // console.log('logging out...');
     //clear session
       request.session.destroy();
     //clear cookies
@@ -55,7 +55,7 @@ function completeLogin(request, response, user) {
   //make sure password isn't saved in session
   delete request.session.user.password;
   delete request.session.user.confirmpassword;
-  console.log('hello there', request.session.user);
+  // console.log('hello there', request.session.user);
 
   //set cookies
   response.cookie('userID', user._id.toString());

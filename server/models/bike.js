@@ -6,7 +6,7 @@ const bikeSchema = new Schema ({
   title: {
       type: String,
       required: [true, "title is required"],
-      minlength: 3
+      minlength: 1
   },
   description: {
       type: String,
@@ -21,7 +21,7 @@ const bikeSchema = new Schema ({
   location: {
       type: String,
       required: [true, "location is required"],
-      minlength: 5
+      minlength: 1
   },
   image: {
       type: String

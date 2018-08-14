@@ -18,6 +18,7 @@ export class ListingsComponent implements OnInit, OnDestroy {
   bikes: Bike[] = [];
   sub: Subscription;
 
+
   public currUserId: string;
 
   constructor(
@@ -41,9 +42,9 @@ export class ListingsComponent implements OnInit, OnDestroy {
 
   onSubmit(event: Event, form: NgForm) {
     event.preventDefault();
-    console.log('submitting form', this.bike);
+    // console.log('submitting form', this.bike);
     this.bike.ownerId = this.authService.getUserId();
-    console.log(this.bike.ownerId);
+    // console.log(this.bike.ownerId);
     this.sub = this.bikeService.createBike(this.bike)
       .subscribe(bike => {
         console.log('bike from api', bike);
@@ -60,7 +61,7 @@ export class ListingsComponent implements OnInit, OnDestroy {
     console.log('updating bike', bikeToUpdate._id);
     this.sub = this.bikeService.updateBike(bikeToUpdate._id, bikeToUpdate)
       .subscribe(bike => {
-        console.log('update this bike from api', bike);
+        // console.log('update this bike from api', bike);
         // update bike list
         this.sub = this.bikeService.getBikes().subscribe(bikes => {
           this.bikes = bikes;
@@ -69,10 +70,10 @@ export class ListingsComponent implements OnInit, OnDestroy {
   }
 
   onDelete(bikeToDelete: Bike) {
-    console.log('deleting bike', bikeToDelete);
+    // console.log('deleting bike', bikeToDelete);
     this.bikeService.deleteBike(bikeToDelete)
       .subscribe(deletedBike => {
-        console.log('deleted bike', deletedBike);
+        // console.log('deleted bike', deletedBike);
         this.bikes = this.bikes.filter(bike => bike._id !== deletedBike._id);
       });
   }

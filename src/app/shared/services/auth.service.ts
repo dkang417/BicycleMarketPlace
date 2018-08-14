@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   logout(): Observable<boolean> {
-    console.log('logging out');
+    // console.log('logging out');
     return this.http.delete<boolean>(this.base + 'logout').pipe(
       tap(() => this.cookieService.removeAll()),
       tap(() => this.authorized$.next(false))
