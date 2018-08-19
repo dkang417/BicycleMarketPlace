@@ -25,6 +25,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
     lastname: '',
     email: ''
   };
+
   filter = '';
 
   public currUserId: string;

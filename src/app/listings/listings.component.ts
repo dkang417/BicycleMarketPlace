@@ -18,7 +18,6 @@ export class ListingsComponent implements OnInit, OnDestroy {
   bikes: Bike[] = [];
   sub: Subscription;
 
-
   public currUserId: string;
 
   constructor(
