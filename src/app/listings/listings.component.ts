@@ -60,7 +60,7 @@ export class ListingsComponent implements OnInit, OnDestroy {
     console.log('updating bike', bikeToUpdate._id);
     this.sub = this.bikeService.updateBike(bikeToUpdate._id, bikeToUpdate)
       .subscribe(bike => {
-        // console.log('update this bike from api', bike);
+        console.log('update this bike from api', bike);
         // update bike list
         this.sub = this.bikeService.getBikes().subscribe(bikes => {
           this.bikes = bikes;

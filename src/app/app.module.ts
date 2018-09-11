@@ -20,6 +20,8 @@ import { NavComponent } from './nav/nav.component';
 
 import { AuthGuard } from './auth.guard';
 import { TitleizePipe } from './shared/pipes';
+import { NotfoundComponent } from './notfound/notfound.component';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { TitleizePipe } from './shared/pipes';
     RegisterComponent,
     ListingsComponent,
     NavComponent,
-    TitleizePipe
+    TitleizePipe,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
